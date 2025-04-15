@@ -1,3 +1,3 @@
 export * from "./ContactSection";
-export * from "./AboutSection";
+export * from "./About";
 export * from "./Entry";
