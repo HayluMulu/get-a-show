@@ -32,7 +32,7 @@ export const useStarfield = () => {
       alpha: number;
     }[] = [];
 
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 90; i++) {
       stars.push({
         x: Math.random() * width,
         y: Math.random() * height,
