@@ -1,12 +1,19 @@
 .logo-follower {
-    position: fixed;
-    width: 1px;
-    height: 1px;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    transition: transform 0.05s linear; 
-    font-size: 1rem; 
-  }
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: opacity 0.6s ease-in-out, transform 0.04s linear;
+  font-size: 1rem;
+}
 
-  
+.logo-follower.visible {
+  opacity: 1;
+}
+
+.logo-follower.hidden {
+  opacity: 0;
+  transform: scale(0.95) translate(-50%, -50%);
+}
