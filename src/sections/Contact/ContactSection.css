@@ -1,6 +1,5 @@
-/* src/components/ContactSection.css */
-
 .contact-section {
+  direction: rtl;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -10,7 +9,7 @@
 }
 
 .section-content {
-  width: 100%;
+  width: 620px;
   text-align: center;
 }
 
@@ -51,5 +50,6 @@
 }
 
 .full-width {
-  width: 120px;
+  margin-top: 20px;
+  width: 100%;
 }

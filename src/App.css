@@ -2,7 +2,6 @@ body, html {
   margin: 0;
   font-family: 'Arial', sans-serif;
   scroll-behavior: smooth;
-  background-color: #121212;  /* רקע כהה */
-  color: #e0e0e0;  /* טקסט בהיר */
+  background-color: #121212;  
+  color: #e0e0e0;
 }
-
