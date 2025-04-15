@@ -1,6 +1,7 @@
 /* src/components/ContactSection.css */
 
 .contact-section {
+  direction: rtl;
   min-height: 100vh;
   display: flex;
   justify-content: center;

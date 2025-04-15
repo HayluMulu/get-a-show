@@ -1,7 +1,8 @@
 
 import React, { useRef } from "react";
-import './App.css';
 import {AboutSection,ContactSection, EntrySection} from "./sections";
+import { MouseFollower } from "./component";
+import "./App.css";
 
 function App() {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <main className="app-container">
+      <MouseFollower />
       <EntrySection
         scrollToContact={() => scrollTo(contactRef)}
         scrollToAbout={() => scrollTo(aboutRef)}
