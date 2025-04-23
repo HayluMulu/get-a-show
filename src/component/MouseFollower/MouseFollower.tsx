@@ -56,8 +56,8 @@ export const MouseFollower = () => {
         const x = current.left + current.width / 2;
         const y = current.top + current.height / 2;
 
-        const dx = (mousePos.x - x) * 0.3;
-        const dy = (mousePos.y - y) * 0.3;
+        const dx = (mousePos.x - x) * 0.15;
+        const dy = (mousePos.y - y) * 0.15;
 
         followerRef.current.style.transform = `translate(${x + dx}px, ${
           y + dy

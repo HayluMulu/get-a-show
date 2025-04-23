@@ -1,2 +1,5 @@
-export const ABOUT_HEADLINE = "מי אני שאלתם?"
-export const ABOUT_TEXT = "מלל שלך אלי";
+export const ABOUT_HEADLINE = `מי אני אתם שואלים?`
+export const ABOUT_TEXT = ` לפני הכל אחלה של בן אדם, ובנוסף עוזר לבעלי עסקים להשיג לידים רלוונטים על ידי צילום ועריכת וידאו בזווית ונקודת מבט שונה. 
+אז אם חיפשתם להתבלט אז הגעם למקום הנכון ! 
+`
+

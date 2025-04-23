@@ -9,9 +9,9 @@ type AboutSectionProps = {
 export const AboutSection = ({ aboutRef }: AboutSectionProps) => {
   return (
     <section ref={aboutRef} className="about-section">
-      <div className="section-content">
-        <h2 className="section-title">{ABOUT_HEADLINE}</h2>
-        <p className="section-text">{ABOUT_TEXT}</p>
+      <div className="about-content">
+        <h2 className="about-title">{ABOUT_HEADLINE}</h2>
+        <p className="about-text">{ABOUT_TEXT}</p>
       </div>
     </section>
   );

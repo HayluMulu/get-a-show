@@ -6,7 +6,7 @@ import "./App.css";
 import { useStarfield } from "./hooks";
 
 function App() {
-  const canvasRef = useStarfield({meteorColor: "#420044"});
+  const canvasRef = useStarfield({ meteorColor: "#4abac8", starCount:50,starSpeed: 0.6});
   const aboutRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 

@@ -63,7 +63,6 @@ export const useStarfield = (options: StarfieldOptions = {}) => {
     const draw = (time: number) => {
       ctx.clearRect(0, 0, width, height);
 
-      // כוכבים
       stars.forEach((star) => {
         star.x += star.dx;
         star.y += star.dy;
@@ -77,13 +76,11 @@ export const useStarfield = (options: StarfieldOptions = {}) => {
         ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
         ctx.shadowBlur = 8;
         ctx.shadowColor = starColor;
-        ctx.shadowBlur = 0;
         ctx.shadowColor = "transparent";
         ctx.fillStyle = starColor;
         ctx.fill();
       });
 
-      // מטאורים
       if (time - lastMeteorTime > 3000 && Math.random() < 0.5) {
         const fromTop = Math.random() < 0.5;
 
@@ -92,7 +89,7 @@ export const useStarfield = (options: StarfieldOptions = {}) => {
           y: fromTop ? -50 : Math.random() * height,
           length: 150 + Math.random() * 100,
           speed: 8 + Math.random() * 2,
-          angle: Math.PI / 4, // תנועה אלכסונית
+          angle: Math.PI / 4, 
           alpha: 1,
         });
 
