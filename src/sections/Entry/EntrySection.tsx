@@ -4,8 +4,6 @@ import {
   LETS_MEET,
   STRAIGHT_TO_THE_POINT,
 } from "./consts";
-import Lottie from "lottie-react";
-import animationData from "../../assets/animations/ufo.json";
 import "./EntrySection.css";
 
 type EntrySectionProps = {
