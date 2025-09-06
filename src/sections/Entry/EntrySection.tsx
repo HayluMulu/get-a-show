@@ -1,6 +1,7 @@
 import {
   CUT_AND_RESTART,
   DONT_HAVE_LIDS,
+  FROM_OTHER_SPACE,
   LETS_MEET,
   STRAIGHT_TO_THE_POINT,
 } from "./consts";
@@ -18,8 +19,9 @@ export const EntrySection = ({
   return (
     <section className="entry-section">
       <div className="entry-title">
-        <h1>{DONT_HAVE_LIDS}</h1>
-        <h1>{CUT_AND_RESTART}</h1>
+        <h1>{FROM_OTHER_SPACE}</h1>
+        <h3>{DONT_HAVE_LIDS}</h3>
+        <h3>{CUT_AND_RESTART}</h3>
       </div>
       <div className="entry-buttons">
         <button onClick={scrollToAbout} className="btn btn-primary">
