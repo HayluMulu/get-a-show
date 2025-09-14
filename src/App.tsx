@@ -1,7 +1,7 @@
 
 import React, { useRef } from "react";
-import {AboutSection,ContactSection, EntrySection} from "./sections";
-import { MouseFollower } from "./component";
+import {AboutSection,ContactSection, HeroSection} from "./sections";
+import { MouseFollower, LinkLogoComponent } from "./component";
 import "./App.css";
 import { useStarfield } from "./hooks";
 
@@ -19,12 +19,13 @@ function App() {
       <canvas ref={canvasRef} className="stars-canvas" />
       <main className="app-container">
         <MouseFollower />
-        <EntrySection
+        <HeroSection
           scrollToContact={() => scrollTo(contactRef)}
           scrollToAbout={() => scrollTo(aboutRef)}
         />
         <AboutSection aboutRef={aboutRef} />
         <ContactSection contactRef={contactRef} />
+        <LinkLogoComponent />
       </main>
     </>
   );

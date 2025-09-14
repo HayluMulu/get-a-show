@@ -1,0 +1,136 @@
+.link-logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.linksIcon {
+  height: 60px;
+  width: 60px;
+  box-sizing: border-box;
+  overflow: hidden;
+  cursor: pointer;
+  position: fixed;
+  bottom: 50px;
+  right: 60px;
+  fill: #b969cc;  color: #b969cc;
+  text-shadow: 
+  0 0 4px #d899ee,
+  0 0 20px rgba(185, 105, 204, 0.5);
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.linksIcon:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+.social-icons-container {
+  position: fixed;
+  bottom: 120px;
+  right: 60px;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  animation: slideUpFromBehind 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.social-icons-container.closing {
+  animation: slideDownToBehind 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.social-icon-wrapper {
+  animation: iconAppear 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: var(--animation-delay);
+  opacity: 0;
+  transform: translateY(30px) scale(0.8);
+}
+
+.social-icons-container.closing .social-icon-wrapper {
+  animation: iconDisappear 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: calc(var(--animation-delay) * 0.5);
+}
+
+.social-icon {
+  height: 50px;
+  width: 50px;
+  fill: var(--icon-color);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35)) brightness(1.1);
+}
+
+@keyframes slideUpFromBehind {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideDownToBehind {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+}
+
+@keyframes iconAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.8) rotate(-10deg);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(-5px) scale(1.05) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes iconDisappear {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.8) rotate(10deg);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .linksIcon {
+    height: 50px;
+    width: 50px;
+    bottom: 30px;
+    right: 30px;
+  }
+  
+  .social-icons-container {
+    bottom: 90px;
+    right: 30px;
+  }
+  
+  .social-icon {
+    height: 40px;
+    width: 40px;
+  }
+}

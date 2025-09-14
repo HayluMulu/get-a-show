@@ -1,0 +1,197 @@
+/**
+ * Hero Section Styles
+ * 
+ * Styles for the main hero section featuring:
+ * - Space-themed hero title with Hebrew (RTL) support
+ * - Responsive design with mobile-first approach
+ * - Animated buttons with hover effects
+ * - Gradient text effects for space theme
+ */
+
+/* ==========================================================================
+   CSS Custom Properties (Variables)
+   ========================================================================== */
+:root {
+  --hero-primary-color: #b969cc;
+  --hero-primary-glow: #d899ee;
+  --hero-primary-shadow: rgba(185, 105, 204, 0.5);
+  --hero-text-shadow: rgba(255, 255, 255, 0.3);
+  --hero-button-bg: #420044;
+  --hero-button-hover: #2185c0;
+  --hero-button-shadow: rgba(0, 0, 0, 0.4);
+  --hero-button-hover-shadow: rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   Base Hero Section Layout
+   ========================================================================== */
+.hero-section {
+  /* Layout */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  /* Typography */
+  text-align: center;
+  direction: rtl; /* Hebrew support */
+  
+  /* Animation */
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* ==========================================================================
+   Hero Title Section
+   ========================================================================== */
+.hero-title {
+  /* Typography */
+  font-size: clamp(1.8rem, 5vw, 2.2rem);
+  font-weight: bold;
+  
+  /* Spacing */
+  margin-bottom: 2rem;
+  max-width: 90%;
+  
+  /* Visual Effects */
+  color: white;
+  text-shadow: 2px 2px 10px var(--hero-text-shadow);
+}
+
+.hero-main-title {
+  display: flex;
+  gap: 24px;
+}
+
+.hero-space-text {
+  color: var(--hero-primary-color);
+  text-shadow: 
+    0 0 4px var(--hero-primary-glow),
+    0 0 20px var(--hero-primary-shadow);
+}
+
+/* Title Typography */
+.hero-title h1 {
+  font-size: clamp(3rem, 10vw, 6.5rem);
+  margin-bottom: 1.5rem;
+}
+
+.hero-title h3 {
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   Hero Buttons Section
+   ========================================================================== */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  color: white;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Button Styles
+   ========================================================================== */
+.btn {
+  /* Typography */
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  
+  /* Layout */
+  height: 56px;
+  width: 160px;
+  border-radius: 1rem;
+  
+  /* Interaction */
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  
+  /* Visual Effects */
+  box-shadow: 0 4px 6px var(--hero-button-shadow);
+}
+
+.btn-primary {
+  background-color: var(--hero-button-bg);
+}
+
+.btn-primary:hover {
+  background-color: var(--hero-button-hover);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px var(--hero-button-hover-shadow);
+}
+
+/* ==========================================================================
+   Responsive Design - Mobile First Approach
+   ========================================================================== */
+
+/* Tablet and below (768px and below) */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 1rem;
+    justify-content: center;
+  }
+  
+  .hero-title {
+    margin-bottom: 1.5rem;
+    max-width: 95%;
+  }
+  
+  .hero-title h1 {
+    font-size: clamp(1rem, 8vw, 3.5rem);
+    margin-bottom: 1rem;
+  }
+  
+  .hero-title h3 {
+    font-size: clamp(1rem, 4vw, 1.4rem);
+    margin: 0.3rem 0;
+    line-height: 1.3;
+  }
+  
+  .hero-buttons {
+    flex-direction: row;
+    gap: 0.8rem;
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+  
+  .btn {
+    width: 120px;
+    font-size: 0.85rem;
+    height: 42px;
+  }
+}
+
+/* Small mobile (480px and below) */
+@media (max-width: 480px) {
+  .hero-title h1 {
+    font-size: clamp(1rem, 7vw, 2.8rem);
+  }
+  
+  .hero-title h3 {
+    font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+  }
+  
+  .hero-buttons {
+    max-width: 280px;
+    gap: 0.6rem;
+  }
+  
+  .btn {
+    width: 100px;
+    font-size: 0.8rem;
+    height: 38px;
+  }
+}
+
+/* Small tablet and up (640px and above) */
+@media (min-width: 640px) {
+  .hero-buttons {
+    flex-direction: row;
+  }
+}

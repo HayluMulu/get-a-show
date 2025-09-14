@@ -1,3 +1,3 @@
 export * from "./Contact";
 export * from "./About";
-export * from "./Entry";
+export * from "./Hero";
