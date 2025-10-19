@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from '../ui';
-import { useDeviceDetection } from '../../hooks';
+import { useDeviceDetection, useIntersectionObserver } from '../../hooks';
 import { AnimatedText } from '../animations';
 import { ANIMATION_DELAYS } from '../../constants';
 
@@ -14,13 +14,21 @@ export const AboutSection: React.FC = () => {
   const [showCards, setShowCards] = useState(false);
   const [flippedCards, setFlippedCards] = useState<{ [key: number]: boolean }>({});
   const { isMobile } = useDeviceDetection();
+  
+  // Use intersection observer to detect when section is visible
+  const { elementRef, hasIntersected } = useIntersectionObserver({
+    threshold: 0.3
+  });
 
   useEffect(() => {
-    // Show cards after a delay
-    setTimeout(() => {
-      setShowCards(true);
-    }, ANIMATION_DELAYS.cards);
-  }, []);
+    // Start text animation when section becomes visible
+    if (hasIntersected) {
+      // Show cards after text animation completes
+      setTimeout(() => {
+        setShowCards(true);
+      }, ANIMATION_DELAYS.cards);
+    }
+  }, [hasIntersected]);
 
   const handleCardFlip = (cardIndex: number) => {
     if (isMobile) return; // Don't flip on mobile
@@ -49,7 +57,7 @@ export const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="about-section">
+    <section id="about" className="about-section" ref={elementRef}>
       <div className="about-content">
         <h1 className="about-title">מי אני אתם שואלים?</h1>
         
@@ -63,7 +71,7 @@ export const AboutSection: React.FC = () => {
             <p className="megaphone-text">
               <AnimatedText
                 text={ABOUT_TEXT}
-                isVisible={true}
+                isVisible={hasIntersected}
                 delay={ANIMATION_DELAYS.sentence}
               />
             </p>
@@ -86,6 +94,11 @@ export const AboutSection: React.FC = () => {
               </p>
             </div>
           </Card>
+          
+          {/* Hint text for desktop users */}
+          {!isMobile && (
+            <p className="cards-hint-text">לחצו על הכרטיסים כדי לגלות עוד</p>
+          )}
           
           {/* Feature cards in row */}
           <div className="feature-cards-row">

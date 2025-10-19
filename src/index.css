@@ -1,3 +1,101 @@
+/* Splash Screen Animations */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: linear-gradient(135deg, #0B0E26 0%, #1a1f3a 50%, #0B0E26 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease-out;
+}
+
+.splash-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-video-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.splash-video.loading {
+  opacity: 0;
+}
+
+.splash-video.loaded {
+  opacity: 1;
+}
+
+.splash-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Enhanced video loading animation */
+.video-loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(0, 255, 255, 0.3);
+  border-top: 3px solid #00FFFF;
+  border-radius: 50%;
+  animation: videoSpin 1s linear infinite;
+}
+
+@keyframes videoSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Smooth content transitions after splash */
+.main-content-fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.main-content-fade-in.visible {
+  opacity: 1;
+}
+
+/* Prevent layout shifts during splash */
+body.splash-active {
+  overflow: hidden;
+}
+
+body.splash-active main,
+body.splash-active footer {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Mobile optimizations for splash screen */
+@media (max-width: 768px) {
+  .splash-video-container {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
 @import 'tailwindcss';
 
 /* RTL Support */
@@ -470,6 +568,35 @@ body {
   100% { background-position: -200% 0; }
 }
 
+@keyframes cardPulse {
+  0%, 100% { 
+    box-shadow: 0 4px 16px rgba(122, 63, 242, 0.1);
+    border-color: rgba(122, 63, 242, 0.3);
+  }
+  50% { 
+    box-shadow: 0 6px 24px rgba(122, 63, 242, 0.2);
+    border-color: rgba(122, 63, 242, 0.5);
+  }
+}
+
+@keyframes iconBounce {
+  0%, 100% { 
+    transform: translateY(0);
+  }
+  50% { 
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes hintFade {
+  0%, 100% { 
+    opacity: 0.7;
+  }
+  50% { 
+    opacity: 1;
+  }
+}
+
 
 /* Canvas container */
 .canvas-container {
@@ -669,6 +796,15 @@ body {
   margin: 0 auto;
 }
 
+.cards-hint-text {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin: 1rem 0;
+  font-style: italic;
+  animation: hintFade 3s ease-in-out infinite;
+}
+
 /* Feature Cards */
 .feature-card {
   background: rgba(11, 14, 38, 0.6);
@@ -683,6 +819,7 @@ body {
   min-width: 280px;
   cursor: pointer;
   perspective: 1000px;
+  animation: cardPulse 3s ease-in-out infinite;
 }
 
 .feature-card::before {
@@ -698,13 +835,19 @@ body {
 }
 
 .feature-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(0, 255, 255, 0.5);
-  box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(0, 255, 255, 0.7);
+  box-shadow: 0 16px 48px rgba(0, 255, 255, 0.25), 0 0 20px rgba(0, 255, 255, 0.15);
+  animation-play-state: paused;
 }
 
 .feature-card:hover::before {
   opacity: 1;
+}
+
+.feature-card:hover .card-icon {
+  animation-play-state: paused;
+  transform: scale(1.1);
 }
 
 /* Card Flip Animation */
@@ -759,6 +902,7 @@ body {
   background: rgba(122, 63, 242, 0.1);
   border-radius: 12px;
   border: 1px solid rgba(122, 63, 242, 0.2);
+  animation: iconBounce 2s ease-in-out infinite;
 }
 
 /* Smaller emoji when text is present (card-back) */
@@ -907,6 +1051,7 @@ body {
   .feature-card {
     padding: 20px;
     cursor: default;
+    animation: none;
   }
   
   .card-inner {
@@ -921,6 +1066,7 @@ body {
     font-size: 2rem;
     width: 50px;
     height: 50px;
+    animation: none;
   }
   
   .card-back .card-icon {
